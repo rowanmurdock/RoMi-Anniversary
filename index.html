@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Password</title>
+  <style>
+    body {
+      background-image: url(https://wallpapercave.com/wp/wp10396342.png);
+      background-size: cover;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Courier New", monospace;
+    }
+
+    .window {
+      background: #f4f4f4;
+      border: 3px solid #000;
+      width: 300px;
+      padding: 0;
+      box-shadow: 0px 0px 0px 4px #c0c0c0; 
+    }
+
+    .titlebar {
+      background: #000080;
+      color: white;
+      padding: 6px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    .picturebar {
+      color: white;
+      padding: 6px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 2px;
+      margin-top: 10px;
+      border: 2px solid #000;
+      background: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 12px;
+      width: 100%;
+      padding: 8px;
+      border: 2px solid #000;
+      background: #d9d9d9;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    button:active {
+      background: #b5b5b5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="window">
+    <div class="titlebar">Password Required</div>
+    <div class="content">
+      <label>The site's password is our favorite animal with just the numbers of our anniversary date :3</label>
+      <div class="picturebar"><img src="https://png.pngtree.com/png-vector/20250416/ourmid/pngtree-a-cute-pixel-art-illustration-of-smiling-white-paint-with-transparent-vector-png-image_15998177.png" width=70>
+      <img src="https://png.pngtree.com/png-vector/20250416/ourmid/pngtree-a-cute-pixel-art-illustration-of-smiling-white-paint-with-transparent-vector-png-image_15998177.png" width=70>
+      <img src="https://png.pngtree.com/png-vector/20250416/ourmid/pngtree-a-cute-pixel-art-illustration-of-smiling-white-paint-with-transparent-vector-png-image_15998177.png" width=70>
+      </div>
+      <input id="pw" type="password">
+      <button onclick="check()">Continue</button>
+    </div>
+  </div>
+
+  <script>
+    function check() {
+      const input = document.getElementById("pw").value;
+      const correct = "cat12112022";
+
+      if (input === correct) {
+        window.location.href = "site/home.html";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+
+</body>
+</html>
