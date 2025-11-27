@@ -27,28 +27,28 @@
     </div>
   </div>
 
-  <div class="window">
-    <div class="window-title">Welcome</div>
+  <div class="window" id="win1">
+    <div class="window-title">Welcome  <img src="../image/Windows_95_buttons.png" alt="windows 95 buttons" width="100" onclick="shakeWindow('win1')" > </div>
     <div class="window-content">
-      <p>romi anniversary site</p>
+      <p>Happy 3rd anniversary baby!! I wanted to create a fun, interactive virtual scrapbook that we could both always look back on and add to.</p>
     </div>
     
   </div>
   
   <div class="photorow">
       <div class="polaroid">
-    <img src="../image/sewing.jpg" alt="rowan sewing">
-    <div class="caption"> here is rowan sewing</div>
+    <img src="../image/firstdigipic.JPG" alt="rowan and mimi">
+    <div class="caption"> first digital camera picture!</div>
     </div>
     
     <div class="polaroid">
-    <img src="../image/sewing.jpg" alt="rowan sewing">
-    <div class="caption"></div>
+    <img src="../image/elfears.JPG" alt="rowan and mimi with elf ears">
+    <div class="caption">two elves</div>
     </div>
     
     <div class="polaroid">
-    <img src="../image/sewing.jpg" alt="rowan sewing">
-    <div class="caption"></div>
+    <img src="../image/gettingcoffe.JPG" alt="rowan and mimi drinking coffee">
+    <div class="caption"> coffee date </div>
     </div>
     
     <div class="polaroid">
@@ -79,6 +79,18 @@
     </div>
   </div>
   
+
+
+  <script>
+  function shakeWindow(id) {
+    const win = document.getElementById(id);
+    win.classList.add("shake");
+    setTimeout(() => {
+      win.classList.remove("shake");
+    }, 300);
+  }
+</script>
+
 
 </body>
 </html>
