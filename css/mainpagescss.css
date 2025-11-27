@@ -17,6 +17,11 @@
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
+    .ptilt:hover {
+        transform: rotate(10deg) scale(1.03);
+        box-shadow: 8px 8px 0px #b0b0b0;
+        }
+
     
     
     .polaroid img {
@@ -106,7 +111,7 @@
     .photorow {
       display: flex;
       justify-content: space-evenly;
-      margin: 40px auto;
+      margin: 80px auto;
     }
 
     .window-title {
@@ -145,8 +150,8 @@
     }
 
     .flip-inner {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 330px;
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
     position: relative;
@@ -158,8 +163,8 @@
 
     .flip-front{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 330px;
     backface-visibility: hidden;
     }
 
@@ -170,14 +175,20 @@
 
     .flip-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 330px;
     backface-visibility: hidden;
     transform: rotateY(180deg);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
+    }
+
+    .nostyle-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
     }
 
     
