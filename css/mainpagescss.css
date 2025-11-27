@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 
-  <meta charset="UTF-8">
-  <title>Home</title>
-  <style>
     body {
       margin: 0;
       background-image: url(https://e0.pxfuel.com/wallpapers/981/885/desktop-wallpaper-animated-pixel-pink-pixel-art.jpg);
@@ -28,12 +19,16 @@
       width: 100%;
       display: block;
       border: 1px solid #000;
+      
     }
     
     .caption {
       text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
+      margin-top: 5px;
+      font-size: 24px;
+      font-weight: 800;
+      font-family: "Indie Flower", sans-serif;
+
     }
 
     
@@ -121,32 +116,3 @@
       padding: 20px;
       font-size: 14px;
     }
-  </style>
-</head>
-
-<body>
-
-    <div class="topbar">
-    <a href="home.html">Home</a>
-    <a href="game.html">Game</a>
-
-    <div class="dropdown">
-      <button class="dropdown-btn">Memories ▼</button>
-      <div class="dropdown-content">
-        <a href="memory1.html">Memory 1</a>
-        <a href="memory2.html">Memory 2</a>
-        <a href="memory3.html">Memory 3</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="window">
-    <div class="window-title">Welcome</div>
-    <div class="window-content">
-      <p>Currently a work in progress... come back later!</p>
-    </div>
-    
-  </div>
-
-</body>
-
