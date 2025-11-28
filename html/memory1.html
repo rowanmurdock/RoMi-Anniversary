@@ -3,22 +3,18 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/mainpagescss.css">
-
-
-  <meta charset="UTF-8">
-  <title>Memory 1</title>
-  
+    <meta charset="UTF-8">
+    <title>Memory 1</title>
 </head>
 
 <body>
 
-    <div class="topbar">
+  <div class="topbar">
     <a href="home.html">Home</a>
     <a href="game.html">Game</a>
     <a href="quiz.html">Quiz</a>
-
 
     <div class="dropdown">
       <button class="dropdown-btn">Memories ▼</button>
@@ -27,18 +23,110 @@
         <a href="memory2.html">Memory 2</a>
         <a href="memory3.html">Memory 3</a>
         <a href="memory4.html">Memory 4</a>
-
       </div>
     </div>
   </div>
 
   <div class="window">
-    <div class="window-title">Memory 1</div>
-    <div class="window-content">
-      <p>Currently a work in progress... come back later!</p>
+    <div class="window-title">Memory 1<img src="../image/Windows_95_buttons.png" alt="windows 95 buttons" width="100" onclick="shakeWindow('win1')" > </div>
+    <div class="window-content typewriter">
+      <p>this was our first date after our japan trip! i locked in with my outfit and</p>
+       <p>used everything i got from japan... we got popeyes and shopped around at</p>
+       <p>the mall, and then went home and did our little cat craft. that was when i </p>
+       <p>was obsessed with the roblox smirking face... i remember looking at that</p> 
+       <p>big painting in the food court and admiring it with you, that was the</p> 
+       <p>first time i had ever noticed that painting
+      </p>
     </div>
-    
   </div>
 
-</body>
+  <div class="stack-container" id="stack">
+    
 
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/eatingpopeys.JPG" alt="mimi eating popeyes">
+                <div class="caption">first popeyes ever...</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">you wanted to try popeyes so bad and you were so right to make us</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/mimioutfit.JPG" alt="mimi outfit">
+                <div class="caption">here was your outfit</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">it was a very cute outfit, yours was also actually mostly from japan(and you had a very cute little shirt)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/rowanoutfit.jpg" alt="mimi outfit">
+                <div class="caption">my amazing oufit...</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">i got all of it from japan... my cute cat bag and big pants</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/catcraft.jpeg" alt="mimi outfit">
+                <div class="caption">our little cat craft</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption"> my little smirking guy vs your actual cute guy </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <script>
+  function shakeWindow(id) {
+    const win = document.getElementById(id);
+    win.classList.add("shake");
+    setTimeout(() => {
+      win.classList.remove("shake");
+    }, 300);
+  }
+    const stack = document.getElementById('stack');
+
+    function shufflePile() {
+        const cards = document.querySelectorAll('.flip-card');
+        cards.forEach(card => {
+            const randomAngle = Math.floor(Math.random() * 10) - 5; 
+            card.style.transform = `rotate(${randomAngle}deg)`;
+        });
+    }
+
+    shufflePile();
+
+    stack.addEventListener('click', function() {
+        let topCard = stack.lastElementChild;
+        
+        if(!topCard) return;
+
+        topCard.classList.add('fly-away');
+
+        setTimeout(() => {
+            topCard.classList.remove('fly-away');
+            stack.prepend(topCard);
+            shufflePile();
+        }, 600);
+    });
+  </script>
+
+</body>
+</html>
