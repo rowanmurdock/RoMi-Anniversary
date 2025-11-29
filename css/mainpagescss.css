@@ -151,19 +151,19 @@
     @keyframes float {
     0% { transform: translate(0, 0px); }
     10% {transform: translate(0, 1px);}
-    20% {transform: translate(0, 4px);}
+    20% {transform: translate(0, 3px);}
     30% {transform: translate(0, 6px);}
     40% { transform: translate(0, 9px); }
     50% { transform: translate(0, 10px); }
     60% { transform: translate(0, 9px); }
     70% { transform: translate(0, 6px); }
-    80% { transform: translate(0, 4px); }
+    80% { transform: translate(0, 3px); }
     90% { transform: translate(0, 1px); }
     100% { transform: translate(0, 0px);}
     }
 
     .float{
-        animation: float 2.5s ease infinite;
+        animation: float 2s ease infinite;
     }
 
     .flip-card {
