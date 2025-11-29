@@ -40,7 +40,8 @@
   
   <div class="photorow">
 
-  <div class="flip-card float" onclick="this.classList.toggle('flipped')">
+    <div class="float">
+  <div class="flip-card tilt" onclick="this.classList.toggle('flipped')">
   <div class="flip-inner">
     
     <div class="flip-front polaroid">
@@ -54,8 +55,10 @@
 
   </div>
 </div>
+</div>
 
-  <div class="flip-card float" onclick="this.classList.toggle('flipped')">
+<div class="float">
+  <div class="flip-card tilt" onclick="this.classList.toggle('flipped')">
   <div class="flip-inner">
     
     <div class="flip-front polaroid">
@@ -69,8 +72,10 @@
 
   </div>
 </div>
+</div>
 
-  <div class="flip-card float" onclick="this.classList.toggle('flipped')">
+<div class="float">
+  <div class="flip-card tilt" onclick="this.classList.toggle('flipped')">
   <div class="flip-inner">
     
     <div class="flip-front polaroid">
@@ -84,10 +89,11 @@
 
   </div>
 </div>
+</div>
     
     <div class="float">
     <a href="memory1.html" class="nostyle-link">
-    <div class="polaroid ptilt">
+    <div class=" tilt polaroid ptilt">
     <img src="../image/eatingpopeys.JPG" alt="mimi eating popeyes">
     <div class="caption"> first popeyes ever...</div>
   </div>
@@ -100,7 +106,7 @@
 
       <div class="float">
       <a href="memory2.html" class="nostyle-link">
-      <div class="polaroid ptilt">
+      <div class="polaroid ptilt tilt">
     <img src="../image/onlagoonswing.JPG" alt="us on a lagoon swing">
     <div class="caption"> your lagoon birthday date</div>
     </div>
@@ -109,7 +115,8 @@
     </a>
 
     
-  <div class="flip-card float" onclick="this.classList.toggle('flipped')">
+  <div class="float">
+  <div class="tilt flip-card" onclick="this.classList.toggle('flipped')">
   <div class="flip-inner">
     
     <div class="flip-front polaroid">
@@ -123,11 +130,12 @@
 
   </div>
 </div>
+</div>
     
     
     <div class="float">
     <a href="memory3.html" class="nostyle-link">
-      <div class="polaroid ptilt">
+      <div class="polaroid ptilt tilt">
     <img src="../image/justbeforejapanflight.JPEG" alt="rowan and mimi together">
     <div class="caption"> before our biggest trip together</div>
     </div>
@@ -137,7 +145,7 @@
     
     <div class="float">
     <a href="memory4.html" class="nostyle-link">
-      <div class="polaroid ptilt">
+      <div class="polaroid ptilt tilt">
     <img src="../image/arcade/arcadeselfie.JPG" alt="rowan and mimi together">
     <div class="caption"> having a little fun at arcade...</div>
     </div>
@@ -155,6 +163,17 @@
       win.classList.remove("shake");
     }, 300);
   }
+
+  function shufflePile() {
+        const cards = document.querySelectorAll('.tilt');
+        cards.forEach(card => {
+            const randomAngle = Math.floor(Math.random() * 10) - 5; 
+            card.style.transform = `rotate(${randomAngle}deg)`;
+        });
+    }
+
+    shufflePile();
+    
 </script>
 
 
