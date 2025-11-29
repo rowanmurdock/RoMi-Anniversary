@@ -3,11 +3,9 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/mainpagescss.css">
-
-
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <title>Memory 4</title>
   
 </head>
@@ -32,12 +30,133 @@
     </div>
   </div>
 
-  <div class="window">
-    <div class="window-title">Memory 4</div>
-    <div class="window-content">
-      <p>Currently a work in progress... come back later!</p>
+  <div class="window" id="win1">
+    <div class="window-title">Memory 4<img src="../image/Windows_95_buttons.png" alt="windows 95 buttons" width="100" onclick="shakeWindow('win1')" > </div>
+    <div class="window-content typewriter">
+      <p>We got to go to the arcade a few times over the year! This was </p>
+      <p>one of my favorite activities we get to do together, since so many</p>
+      <p>of the games are nostalgic to me, and i get to see you try</p>
+      <p>them and share them with you. We play fun games where we work </p>
+      <p>together and some where we battle :) I love going to the arcade</p>
+      <p>with you and I hope that we can go again soon!</p>
+
+
     </div>
     
   </div>
+
+  <div class="stack-container" id="stack">
+    
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/arcade/mimidrivinggame.JPG" alt="mimi driving game">
+                <div class="caption">pretty good tank driver...</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">you actually were pretty good at this game, this was the one where we got to have our pictures as the tank pilots</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/arcade/mimigungame.JPG" alt="mimi holding a toy gun">
+                <div class="caption">ready for battle...</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">this was literally so funny that you thought this was how you hold the gun</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/arcade/mimiplayingarcade.JPG" alt="mimi playing arcade">
+                <div class="caption">becoming a gamer</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">you look so joyous playing this old game i used to play as a kid xD</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/arcade/rowangungame.JPG" alt="rowan playing a gun arcade game">
+                <div class="caption">the real gamer of the couple</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">after you died in the jurassic park game, i kept going for so long</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/arcade/rowanjumpgame.JPG" alt="rowan playing an arcade game">
+                <div class="caption">we both tried doodle jump</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">you beat my score at this game, and then we got like 4 tickets for it</div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/arcade/skeeball.JPG" alt="mimi playing skeeball">
+                <div class="caption">skeeball</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">we got barely any tickets from this one :(</div>
+            </div>
+        </div>
+    </div>
+
+
+  </div>
+
+  <script>
+  function shakeWindow(id) {
+    const win = document.getElementById(id);
+    win.classList.add("shake");
+    setTimeout(() => {
+      win.classList.remove("shake");
+    }, 300);
+  }
+    const stack = document.getElementById('stack');
+
+    function shufflePile() {
+        const cards = document.querySelectorAll('.flip-card');
+        cards.forEach(card => {
+            const randomAngle = Math.floor(Math.random() * 10) - 5; 
+            card.style.transform = `rotate(${randomAngle}deg)`;
+        });
+    }
+
+    shufflePile();
+
+    stack.addEventListener('click', function() {
+        let topCard = stack.lastElementChild;
+        
+        if(!topCard) return;
+
+        topCard.classList.add('fly-away');
+
+        setTimeout(() => {
+            topCard.classList.remove('fly-away');
+            stack.prepend(topCard);
+            shufflePile();
+        }, 600);
+    });
+  </script>
 
 </body>

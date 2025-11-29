@@ -106,6 +106,12 @@
       background: #f4f4f4;
       border: 3px solid black;
       box-shadow: 0 0 0 4px #c0c0c0;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    }
+
+    .window:hover{
+        transform: scale(1.1);
     }
     
     .photorow {
@@ -130,16 +136,34 @@
     }
 
     @keyframes shake {
-    0% { transform: translate(0, 0); }
-    20% { transform: translate(-3px, 0); }
-    40% { transform: translate(3px, 0); }
-    60% { transform: translate(-3px, 0); }
-    80% { transform: translate(3px, 0); }
-    100% { transform: translate(0, 0); }
+    0% { transform: translate(0, 0) scale(1.1); }
+    20% { transform: translate(-3px, 0) scale(1.1); }
+    40% { transform: translate(3px, 0) scale(1.1); }
+    60% { transform: translate(-3px, 0) scale(1.1); }
+    80% { transform: translate(3px, 0) scale(1.1); }
+    100% { transform: translate(0, 0) scale(1.1); }
     }
 
     .shake {
     animation: shake 0.3s ease;
+    }
+
+    @keyframes float {
+    0% { transform: translate(0, 0px); }
+    10% {transform: translate(0, 1px);}
+    20% {transform: translate(0, 4px);}
+    30% {transform: translate(0, 6px);}
+    40% { transform: translate(0, 9px); }
+    50% { transform: translate(0, 10px); }
+    60% { transform: translate(0, 9px); }
+    70% { transform: translate(0, 6px); }
+    80% { transform: translate(0, 4px); }
+    90% { transform: translate(0, 1px); }
+    100% { transform: translate(0, 0px);}
+    }
+
+    .float{
+        animation: float 2.5s ease infinite;
     }
 
     .flip-card {
