@@ -6,38 +6,240 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/mainpagescss.css">
     <link rel="icon" type="image/png" href="../image/favicon.png">
+    <meta charset="UTF-8">
+    <title>Quiz</title>
 
-
-  <meta charset="UTF-8">
-  <title>Quiz</title>
+  
 </head>
 
 <body>
 
     <div class="topbar">
-    <a href="home.html">Home</a>
-    <a href="game.html">Game</a>
-    <a href="quiz.html">Quiz</a>
+        <a href="home.html">Home</a>
+        <a href="game.html">Game</a>
+        <a href="quiz.html">Quiz</a>
 
-
-    <div class="dropdown">
-      <button class="dropdown-btn">Memories ▼</button>
-      <div class="dropdown-content">
-        <a href="memory1.html">Memory 1</a>
-        <a href="memory2.html">Memory 2</a>
-        <a href="memory3.html">Memory 3</a>
-        <a href="memory4.html">Memory 4</a>
-
-      </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Memories ▼</button>
+            <div class="dropdown-content">
+                 <a href="memory1.html">Memory 1</a>
+                <a href="memory2.html">Memory 2</a>
+                <a href="memory3.html">Memory 3</a>
+                <a href="memory4.html">Memory 4</a>
+                <a href="memory5.html">Memory 5</a>
+                <a href="memory6.html">Memory 6</a>
+                <a href="memory7.html">Memory 7</a>
+                <a href="memory8.html">Memory 8</a>
+                </div>
+        </div>
     </div>
-  </div>
 
-  <div class="window">
-    <div class="window-title">Quiz page</div>
-    <div class="window-content">
-      <p>Currently a work in progress... come back later!</p>
+    <div class="window" id="win1">
+        <div class="window-title">The RoMi Quiz</div>
+        <div class="window-content">
+            
+            <div class="quiz-container">
+                
+                <div id="question-container">
+                    <div id="question" class="question-text"></div>
+                    <div id="answer-buttons" class="btn-grid">
+                        </div>
+                </div>
+
+                <div class="controls">
+                    <button id="next-btn" class="btn next-btn hide">Next Question</button>
+                </div>
+
+                <div id="result-container" class="hide">
+                    <h2>Quiz Completed!</h2>
+                    <p>You scored: <span id="score">0</span> / <span id="total">0</span></p>
+                    <p id="message"></p>
+                    <button class="btn" onclick="location.reload()">Play Again</button>
+                </div>
+
+            </div>
+            </div>
     </div>
-    
-  </div>
+
+    <script>
+
+      function shakeWindow(id) {
+    const win = document.getElementById(id);
+    win.classList.add("shake");
+    setTimeout(() => {
+      win.classList.remove("shake");
+    }, 300);
+  }
+        
+        const questions = [
+            {
+                question: "Where did we go on our first date?",
+                answers: [
+                    { text: " The Cinema", correct: false },
+                    { text: "The Park", correct: false },
+                    { text: "Coffee Shop", correct: false },
+                    { text: "Aquarium", correct: true }
+                ]
+            },
+            {
+                question: "What is the first movie we saw in theaters together?",
+                answers: [
+                    { text: "Black Panther", correct: true },
+                    { text: "Wild Robot", correct: false },
+                    { text: "Barbie", correct: false },
+                    { text: "Sinners", correct: false }
+                ]
+            },
+            {
+                question: "What year did we meet?",
+                answers: [
+                    { text: "2021", correct: false },
+                    { text: "2022", correct: true },
+                    { text: "2023", correct: false },
+                    { text: "2024", correct: false }
+                ]
+            },
+            {
+                question: "What color was my sweater on the first date?",
+                answers: [
+                    { text: "Black", correct: false },
+                    { text: "Blue", correct: false },
+                    { text: "White", correct: true },
+                    { text: "Green", correct: false }
+                ]
+            },
+            {
+                question: "What lego set did I show you when you first came to my apartment?",
+                answers: [
+                    { text: "Minecraft", correct: true },
+                    { text: "Star Wars", correct: false },
+                    { text: "Lord of the Rings", correct: false },
+                    { text: "City", correct: false }
+                ]
+            },
+            {
+                question: "Where did we go last in Japan?",
+                answers: [
+                    { text: "Tokyo", correct: false },
+                    { text: "Kyoto", correct: false },
+                    { text: "Kanazawa", correct: true },
+                    { text: "Kamakura", correct: false }
+                ]
+            },
+            {
+                question: "Where did we go on the last day in New York?",
+                answers: [
+                    { text: "MET", correct: true },
+                    { text: "Natural History Museum", correct: false },
+                    { text: "Brooklyn", correct: false },
+                    { text: "Chinatown", correct: false }
+                ]
+            },
+            {
+                question: "What is our cat's name on the Stardew Valley farm?",
+                answers: [
+                    { text: "Jiji", correct: false },
+                    { text: "Kiki", correct: false },
+                    { text: "Rice", correct: false },
+                    { text: "Miso", correct: true }
+                ]
+            },
+        ];
+
+        const questionElement = document.getElementById('question');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const nextButton = document.getElementById('next-btn');
+        const questionContainer = document.getElementById('question-container');
+        const resultContainer = document.getElementById('result-container');
+        const scoreSpan = document.getElementById('score');
+        const totalSpan = document.getElementById('total');
+        const messageP = document.getElementById('message');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            nextButton.classList.add('hide');
+            resultContainer.classList.add('hide');
+            questionContainer.classList.remove('hide');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = questions[currentQuestionIndex];
+            questionElement.innerText = currentQuestion.question;
+
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer.text;
+                button.classList.add('btn');
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextButton.classList.add('hide');
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+            
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score++;
+            } else {
+                selectedBtn.classList.add('wrong');
+                shakeWindow("win1")
+            }
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    button.classList.add('correct');
+                }
+                button.disabled = true;
+            });
+
+            if (questions.length > currentQuestionIndex + 1) {
+                nextButton.classList.remove('hide');
+            } else {
+                setTimeout(showScore, 1000); 
+            }
+        }
+
+        function showScore() {
+            questionContainer.classList.add('hide');
+            nextButton.classList.add('hide');
+            resultContainer.classList.remove('hide');
+            scoreSpan.innerText = score;
+            totalSpan.innerText = questions.length;
+
+            if (score === questions.length) {
+                messageP.innerText = "You truly remember everything!";
+            } else if (score > questions.length / 2) {
+                messageP.innerText = "Pretty good, you remembered most";
+            } else {
+                messageP.innerText = "Erm... you forgot it all...";
+            }
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentQuestionIndex++;
+            showQuestion();
+        });
+
+        startGame();
+    </script>
 
 </body>
+</html>
