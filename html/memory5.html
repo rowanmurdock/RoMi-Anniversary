@@ -3,7 +3,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/mainpagescss.css">
     <link rel="icon" type="image/png" href="../image/favicon.png">
 
@@ -40,11 +40,152 @@
 
   <div class="window">
     <div class="window-title">Memory 5</div>
-    <div class="window-content">
-      <p>Currently a work in progress... come back later!</p>
+    <div class="window-content typewriter">
+      <p>our first few things in tokyo! this was such a fun city to explore with</p>
+       <p>you. we went to cool stores, cool temples, and ate a lot of good food.</p>
+       <p>i remember that first night where we went to the skyscraper and looked</p>
+       <p>down on all of tokyo... everything looked so tiny but it just kept</p> 
+       <p>going and going.</p> 
+       
     </div>
     
   </div>
+
+  <div class="stack-container float" id="stack">
+    
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.1.JPEG" alt="mimi at temple">
+                <div class="caption">our first day!</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">i was getting the hang of taking good pictures and had to take this one many times lol</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.2.JPEG" alt="mimi at temple">
+                <div class="caption">mimi at big temple</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">the temple looks huge here, this was a super cool place to visit on the first day</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.3.JPEG" alt="skyscraper view">
+                <div class="caption">the tokyo at night view!</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption">it was fun watching little cars drive by and lights flicker on all over tokyo with you</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.4.JPEG" alt="rowan at temple">
+                <div class="caption">now me with the temple!</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption"> i like how we have the exact same photo of both of us at the same spot lol</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.5.JPEG" alt="bar in alley">
+                <div class="caption"> shopping street restaurant</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption"> a resaurant we saw across the street when we stopped to get a drink after walking through the shopping street for hours</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.6.JPG" alt="rowan">
+                <div class="caption">taking a rest</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption"> we had to sit because your feet hurt and i got a little drink!</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.7.JPG" alt="rowan and mimi at temple">
+                <div class="caption">us at the asakusa lantern</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption"> finally a picture with us both in it, the lantern was so big!!!</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <div class="flip-front polaroid">
+                <img src="../image/japan/j1.8.JPG" alt="temple">
+                <div class="caption">asakusa</div>
+            </div>
+            <div class="flip-back polaroid">
+                <div class="caption"> awesome architecture </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <script>
+  function shakeWindow(id) {
+    const win = document.getElementById(id);
+    win.classList.add("shake");
+    setTimeout(() => {
+      win.classList.remove("shake");
+    }, 300);
+  }
+    const stack = document.getElementById('stack');
+
+    function shufflePile() {
+        const cards = document.querySelectorAll('.flip-card');
+        cards.forEach(card => {
+            const randomAngle = Math.floor(Math.random() * 10) - 5; 
+            card.style.transform = `rotate(${randomAngle}deg)`;
+        });
+    }
+
+    shufflePile();
+
+    stack.addEventListener('click', function() {
+        let topCard = stack.lastElementChild;
+        
+        if(!topCard) return;
+
+        topCard.classList.add('fly-away');
+
+        setTimeout(() => {
+            topCard.classList.remove('fly-away');
+            stack.prepend(topCard);
+            shufflePile();
+        }, 600);
+    });
+  </script>
 
 </body>
 
