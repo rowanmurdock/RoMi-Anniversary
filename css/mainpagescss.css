@@ -405,4 +405,37 @@
         }
 
 
+      #bounce-game {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background: #fce4ec;
+  border-radius: 12px;
+  border-color: #e854d9;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+#bounce-game #score {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: "Pixelify Sans";
+  color: #880e4f;
+  font-weight: bold;
+  z-index: 10;
+}
+
+#target {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+
 
