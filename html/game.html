@@ -39,9 +39,63 @@
   <div class="window">
     <div class="window-title">Game page</div>
     <div class="window-content">
-      <p>Currently a work in progress... come back later!</p>
+      <p>Catch the cuties...</p>
     </div>
+
     
+  </div>
+
+ 
+
+
+    <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+
+       <div id="bounce-game">
+  <div id="score">Score: 0</div>
+  <img id="target" src="../image/firstdigipic.JPG" alt="target">
+</div>
+
+
+    <script>const gameBox = document.getElementById("bounce-game");
+const target = document.getElementById("target");
+const scoreEl = document.getElementById("score");
+
+let score = 0;
+
+let x = 100;
+let y = 100;
+
+let vx = 3;
+let vy = 2;
+
+function update() {
+  const boxWidth = gameBox.clientWidth;
+  const boxHeight = gameBox.clientHeight;
+  const imgWidth = target.clientWidth;
+  const imgHeight = target.clientHeight;
+
+  x += vx;
+  y += vy;
+
+  if (x <= 0 || x + imgWidth >= boxWidth) vx *= -1;
+  if (y <= 0 || y + imgHeight >= boxHeight) vy *= -1;
+
+  target.style.left = x + "px";
+  target.style.top = y + "px";
+
+  requestAnimationFrame(update);
+}
+
+target.addEventListener("click", () => {
+  score++;
+  scoreEl.textContent = "Score: " + score;
+
+  x = Math.random() * 250;
+  y = Math.random() * 250;
+});
+
+update();
+</script>
   </div>
 
 </body>
